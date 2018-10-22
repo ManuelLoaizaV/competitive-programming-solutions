@@ -65,8 +65,7 @@ int main() {
 	for (int i = 0; i < K; i++) {
 		if (winners == numberOfPlayers) break;
 		while (playerPosition[actualPlayer] > boardSize * boardSize) {
-			actualPlayer++;
-			actualPlayer = (actualPlayer ) % numberOfPlayers;
+			actualPlayer = (actualPlayer + 1) % numberOfPlayers;
 		}
 		point dice;
 		cin >> dice.x >> dice.y;
