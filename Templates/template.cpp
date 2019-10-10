@@ -1,6 +1,8 @@
 // Your day breaks, your mind aches
 // You find that all the words of kindness linger on
 // When she no longer needs you
+//#pragma GCC optimize ("Ofast,unroll-loops")
+//#pragma GCC target ("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
 #include <bits/stdc++.h>
 using namespace std;
 #define fastio ios::sync_with_stdio(0);cin.tie(0)
