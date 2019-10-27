@@ -11,20 +11,24 @@ using namespace std;
 #define roF(i,a,b) for (int i = a; i >= b; i--)
 #define pb push_back
 #define mp make_pair
+#define mt(a,b,c) mp(mp(a,b),c) 
 #define ff first
 #define ss second
 
 typedef long long ll;
 typedef long double ld;
 typedef unsigned long long ull;
-typedef pair<int, int> pii;
-typedef pair<ll, ll> pll;
+typedef pair<int, int> ii;
+typedef pair<ii, int> iii;
 typedef vector<int> vi;
-typedef vector<ll> vll;
+typedef vector<ii> vii;
 
 const int N = 1e6;
 const ll INF = 1e18;
 const ld EPS = 10e-9;
+
+mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
+ll random(ll a, ll b) { return uniform_int_distribution<ll> (a, b) (rng); }
 
 int main() {
 	fastio;
