@@ -11,15 +11,14 @@ using namespace std;
 #define roF(i,a,b) for (int i = a; i >= b; i--)
 #define pb push_back
 #define mp make_pair
-#define mt(a,b,c) mp(mp(a,b),c) 
 #define ff first
 #define ss second
+#define all(v) (v).begin(),(v).end()
 
 typedef long long ll;
 typedef long double ld;
 typedef unsigned long long ull;
 typedef pair<int, int> ii;
-typedef pair<ii, int> iii;
 typedef vector<int> vi;
 typedef vector<ii> vii;
 
