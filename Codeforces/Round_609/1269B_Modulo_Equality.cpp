@@ -38,6 +38,7 @@ int main() {
 	For(i,0,n) cin >> a[i];
 	For(i,0,n) cin >> b[i];
 	sort(b, b + n);
+	ll ans = -1;
 	For(j,0,n) {
 		ll c[n];
 		For(i,0,n) c[i] = a[i];
@@ -51,9 +52,10 @@ int main() {
 			break;
 		}
 		if (ok) {
-			cout << add << endl;
-			break;
+			if (ans == -1) ans = add;
+			else ans = min(ans, add);
 		}
 	}
+	cout << ans << endl;
 	return 0;
 }
