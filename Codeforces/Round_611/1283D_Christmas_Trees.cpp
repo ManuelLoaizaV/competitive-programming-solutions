@@ -89,27 +89,27 @@ void solve() {
 			inter[pos].l++;
 			first = false;
 			// Si el intervalo sigue siendo valido
-            if (inter[pos].l <= inter[pos].r) continue;
-            // Sino es valido, lo elimino
-            inter[inter[pos].prev].next = inter[pos].next;
-            inter[inter[pos].next].prev = inter[pos].prev;
+			if (inter[pos].l <= inter[pos].r) continue;
+			// Sino es valido, lo elimino
+			inter[inter[pos].prev].next = inter[pos].next;
+			inter[inter[pos].next].prev = inter[pos].prev;
 			pos = inter[pos].next;
-            first = true;
+			first = true;
 		} else {
 			sum += inter[pos].cost(inter[pos].r);
 			ans.pb(inter[pos].r);
 			inter[pos].r--;
 			first = true;
 			// Si el intervalo sigue siendo valido
-            if (inter[pos].l <= inter[pos].r) {
+			if (inter[pos].l <= inter[pos].r) {
 				pos = inter[pos].next;
 				continue;
 			}
-            // Sino es valido, lo elimino
-            inter[inter[pos].prev].next = inter[pos].next;
-            inter[inter[pos].next].prev = inter[pos].prev;
-            pos = inter[pos].next;
-            first = true;
+			// Sino es valido, lo elimino
+			inter[inter[pos].prev].next = inter[pos].next;
+			inter[inter[pos].next].prev = inter[pos].prev;
+			pos = inter[pos].next;
+			first = true;
 		}
 	}
 	cout << sum << endl;
