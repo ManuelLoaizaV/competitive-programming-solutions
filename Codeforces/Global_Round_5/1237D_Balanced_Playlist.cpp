@@ -67,26 +67,17 @@ int sup(int l, int r, int x) {
 
 // Busco el indice del primero <= x
 int inf(int l, int r, int x) {
-	//debug(x);
-	//debug(l);
 	// TTTT
 	if (query(l, l).ff <= x) return l;
 	// FFFF
-	//debug(r);
 	if (query(l, r).ff > x) return -1;
 	int ini = l;
 	while (r - l > 1) {
 		int m = (l + r) / 2;
-		//debug(l);
-		//debug(r);
-		//debug(m);
-		//debug(query(ini, m).ff);
 		if (query(ini, m).ff <= x) r = m;
 		else l = m;
 	}
-	//debug(l);
 	if (query(ini, l).ff <= x) return l;
-	//debug(r);
 	return r;
 }
 
@@ -101,13 +92,10 @@ void solve() {
 	int c[3 * n];
 	For(i,0,3*n) c[i] = -1;
 	roF(i,3*n-1,0) {
-		//debug(i);
 		// Busco el primero que supera ai
 		int j = sup(i, 3 * n - 1, b[i]);
 		// Busco el primero que es inferior ai / 2
 		int k = inf(i, 3 * n - 1, coolness(b[i]));
-		//debug(j);
-		//debug(k);
 		if (j == -1) {
 			if (k == -1) {
 				c[i] = -1;
