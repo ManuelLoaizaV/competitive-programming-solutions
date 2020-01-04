@@ -1,8 +1,8 @@
 // Your day breaks, your mind aches
 // You find that all the words of kindness linger on
 // When she no longer needs you
-//#pragma GCC optimize ("Ofast,unroll-loops")
-//#pragma GCC target ("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+#pragma GCC optimize ("Ofast,unroll-loops")
+#pragma GCC target ("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
 #include <bits/stdc++.h>
 #include <unistd.h>
 using namespace std;
@@ -23,7 +23,7 @@ typedef pair<int, int> ii;
 typedef vector<int> vi;
 typedef vector<ii> vii;
 
-const int N = 400005;
+const int N = 400001;
 const ll INF = 1e18;
 const ld EPS = 10e-9;
 
@@ -121,17 +121,17 @@ int search2(int t, int l, int r, Lecture A[]) {
 
 void solve() {
 	int n;
-	cin >> n;
+	scanf("%d", &n);
 	ii a[n], b[n];
-	For(i,0,n) cin >> a[i].x >> a[i].y >> b[i].x >> b[i].y;
-	set<int> uni;
+	For(i,0,n) scanf("%d %d %d %d", &a[i].x, &a[i].y, &b[i].x, &b[i].y);
+	unordered_set<int> uni;
 	For(i,0,n) {
 		uni.insert(a[i].x);
 		uni.insert(a[i].y);
 		uni.insert(b[i].x);
 		uni.insert(b[i].y);
 	}
-	std::set<int>::iterator it;
+	std::unordered_set<int>::iterator it;
 	vector<int> mens;
 	for (it = uni.begin(); it != uni.end(); it++) mens.pb(*it);
 	sort(all(mens));
@@ -161,7 +161,7 @@ void solve() {
 		roF(j,prev-1,pos_aux) update(1, 1, sz, A[j].b.x, A[j].b.y, 1);
 		int count = query(1, 1, sz, B[i].a.x, B[i].a.y);
 		if (count > 0) {
-			cout << "NO" << endl;
+			printf("NO\n");
 			return;
 		}
 	}
@@ -177,11 +177,11 @@ void solve() {
 		roF(j,prev-1,pos_aux) update(1, 1, sz, A[j].a.x, A[j].a.y, 1);
 		int count = query(1, 1, sz, B[i].a.x, B[i].a.y);
 		if (count > 0) {
-			cout << "NO" << endl;
+			printf("NO\n");
 			return;
 		}
 	}
-	cout << "YES" << endl;
+	printf("YES\n");
 }
 
 int main() {
