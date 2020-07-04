@@ -63,11 +63,35 @@ void solve() {
 	Long lim = 1 << n;
 	Long dp[lim];
 	For(i, 0, lim) dp[i] = INF;
+	dp[0] = 0;
 	For(i, 0, m) {
-		For(mask, 0, lim) {
-			Long cur[n];
-			roF(j, n - 1, 0) cur[j] = mask & 1;
+		Long value, boxes;
+		cin >> value >> boxes;
+		bool unlock[n];
+		For(j, 0, n) unlock[j] = false;
+		For(j, 0, boxes) {
+			Long pos;
+			cin >> pos;
+			unlock[pos - 1] = true;
 		}
+		Long temp[lim];
+		For(mask, 0, lim) temp[mask] = dp[mask];
+		For(mask, 0, lim) {
+			bool cur[n];
+			Long copy = mask;
+			For(j, 0, n) {
+				cur[n - 1 - j] = (copy % 2 == 0 ? false : true) or unlock[n - 1 - j];
+				copy /= 2;
+			}
+			Long who = 0;
+			Long pot = 1;
+			For(j, 0, n) {
+				if (cur[n - 1 - j]) who += pot;
+				pot *= 2;
+			}
+			temp[who] = min(temp[who], dp[mask] + value);
+		}
+		For(mask, 0, lim) dp[mask] = temp[mask];
 	}
 	if (dp[lim - 1] >= INF) cout << "-1" << endl;
 	else cout << dp[lim - 1] << endl;
