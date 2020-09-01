@@ -78,7 +78,6 @@ void solve() {
 				For(j, 0, 13) {
 					Long to = (cur + j) % 13LL;
 					dp[pos][to] = (dp[pos][to] + dp[pos + 1][j]) % MOD;
-			//		debug(dp[pos][to]);
 				}
 			}
 		} else {
@@ -87,7 +86,6 @@ void solve() {
 			For(j, 0, 13) {
 				Long to = (cur + j) % 13LL;
 				dp[pos][to] = (dp[pos][to] + dp[pos + 1][j]) % MOD;
-			//	debug(dp[pos][to]);
 			}
 		}
 		pot = (pot * 10LL) % 13LL;
