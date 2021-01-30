@@ -98,15 +98,12 @@ Long DP(int mask, int last) {
 void Solve(void) {
   int n, m;
   cin >> n >> m;
-  set<int> found;
   for (int i = 0; i < m; i++) {
     int u, v;
     cin >> u >> v;
     u--;
     v--;
     g.AddEdge(u, v);
-    found.insert(u);
-    found.insert(v);
   }
   cin >> k;
   for (int i = 0; i < k; i++) {
@@ -114,16 +111,6 @@ void Solve(void) {
     cin >> c;
     c--;
     gems.push_back(c);
-  }
-  if (k == 1) {
-    cout << 1 << '\n';
-    return;
-  }
-  for (int i = 0; i < k; i++) {
-    if (found.count(gems[i]) == 0) {
-      cout << -1 << '\n';
-      return;
-    }
   }
   for (int i = 0; i < k; i++) g.BFS(i, n);
   Long ans = INF;
